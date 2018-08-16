@@ -18,6 +18,7 @@ RUN pip install . --constraint upper-constraints.txt && \
     echo "connection=sqlite:////home/rally/data/rally.db" >> /etc/rally/rally.conf
 RUN pip install rally-openstack
 RUN pip install cryptography==2.2.1
+
 RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> /etc/bash.bashrc
 # Cleanup pip
 RUN rm -rf /root/.cache/
@@ -25,7 +26,7 @@ RUN rm -rf /root/.cache/
 USER rally
 ENV HOME /home/rally
 RUN mkdir -p /home/rally/data && rally db recreate
-
+RUN rally verify create-verifier --type tempest --name tempest-verifier
 # Docker volumes have specific behavior that allows this construction to work.
 # Data generated during the image creation is copied to volume only when it's
 # attached for the first time (volume initialization)
