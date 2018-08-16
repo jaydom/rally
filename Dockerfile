@@ -23,7 +23,7 @@ RUN rm -rf /root/.cache/
 USER rally
 ENV HOME /home/rally
 RUN mkdir -p /home/rally/data && rally db recreate
-
+RUN pip install rally-openstack
 # Docker volumes have specific behavior that allows this construction to work.
 # Data generated during the image creation is copied to volume only when it's
 # attached for the first time (volume initialization)
