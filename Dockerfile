@@ -31,4 +31,4 @@ RUN rally verify create-verifier --type tempest --name tempest-verifier
 # Data generated during the image creation is copied to volume only when it's
 # attached for the first time (volume initialization)
 VOLUME ["/home/rally/data"]
-ENTRYPOINT ["rally"]
+CMD ["rally"]
