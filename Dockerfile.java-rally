@@ -1,0 +1,6 @@
+FROM registry.cn-shenzhen.aliyuncs.com/jaydomchen/openstack:master
+USER root
+
+apt-get install -y openjdk-8-jdk-headless
+  
+CMD [ "java" ]
