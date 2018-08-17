@@ -23,6 +23,7 @@ RUN pip install cryptography==2.2.1 \
 RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> /etc/bash.bashrc
 # Cleanup pip
 RUN rm -rf /root/.cache/
+RUN sed -i 's\password = str(uuid.uuid4())\password = str("Gsta_123")\g' /usr/local/lib/python2.7/dist-packages/rally_openstack/contexts/keystone/users.py
 
 USER rally
 ENV HOME /home/rally
