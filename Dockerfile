@@ -17,7 +17,8 @@ RUN pip install . --constraint upper-constraints.txt && \
     echo "[database]" > /etc/rally/rally.conf && \
     echo "connection=sqlite:////home/rally/data/rally.db" >> /etc/rally/rally.conf
 RUN pip install rally-openstack
-RUN pip install cryptography==2.2.1
+RUN pip install cryptography==2.2.1 \
+    && pip install stestr==1.0.0
 
 RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> /etc/bash.bashrc
 # Cleanup pip
