@@ -2,5 +2,5 @@ FROM registry.cn-shenzhen.aliyuncs.com/jaydomchen/openstack:master
 USER root
 
 RUN apt-get install -y openjdk-8-jdk-headless sshpass
-
+RUN pip install httplib2
 CMD [ "java" ]
